@@ -3598,6 +3598,7 @@
                 observer: true,
                 observeParents: true,
                 spaceBetween: 0,
+                autoHeight: true,
                 speed: 800,
                 spaceBetween: 20,
                 autoHeight: true,
@@ -3642,7 +3643,7 @@
             selectedIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none"><path d="M7.49932 10.8155C7.22726 11.0875 6.77274 11.0875 6.49998 10.8155L0.206656 4.53826C-0.0688853 4.26272 -0.0688853 3.81587 0.206656 3.54103C0.482197 3.26549 0.929748 3.26549 1.20529 3.54103L6.99997 9.3196L12.794 3.54033C13.0702 3.26479 13.517 3.26479 13.7933 3.54033C14.0688 3.81587 14.0688 4.26272 13.7933 4.53757L7.49932 10.8155Z" fill="#060606"/></svg>';
             select.className = "selections";
             selected.className = "option selected";
-            selectedText.innerText = "Pick the time zone";
+            selectedText.innerText = selectParent.getAttribute("data-select");
             selected.append(selectedText, selectedIcon);
             optionList.className = "option-list";
             selectParent.append(select);
@@ -3800,68 +3801,68 @@
             text: "Demos",
             href: "#",
             submenu: [ {
-                text: "Home 1",
+                text: "Demos 1",
                 href: "#"
             }, {
-                text: "Home 2",
+                text: "Demos 2",
                 href: "#"
             }, {
-                text: "Home 3",
+                text: "Demos 3",
                 href: "#"
             }, {
-                text: "Home 4",
+                text: "Demos 4",
                 href: "#"
             } ]
         }, {
             text: "Company",
             href: "#",
             submenu: [ {
-                text: "Home 1",
+                text: "Company 1",
                 href: "#"
             }, {
-                text: "Home 2",
+                text: "Company 2",
                 href: "#"
             }, {
-                text: "Home 3",
+                text: "Company 3",
                 href: "#"
             } ]
         }, {
             text: "Service",
             href: "#",
             submenu: [ {
-                text: "Home 1",
+                text: "Service 1",
                 href: "#"
             }, {
-                text: "Home 2",
+                text: "Service 2",
                 href: "#"
             }, {
-                text: "Home 3",
+                text: "Service 3",
                 href: "#"
             } ]
         }, {
             text: "Pricing",
             href: "#",
             submenu: [ {
-                text: "Home 1",
+                text: "Pricing 1",
                 href: "#"
             }, {
-                text: "Home 2",
+                text: "Pricing 2",
                 href: "#"
             }, {
-                text: "Home 3",
+                text: "Pricing 3",
                 href: "#"
             } ]
         }, {
             text: "All pages",
             href: "#",
             submenu: [ {
-                text: "Home 1",
+                text: "All pages 1",
                 href: "#"
             }, {
-                text: "Home 2",
+                text: "All pages 2",
                 href: "#"
             }, {
-                text: "Home 3",
+                text: "All pages 3",
                 href: "#"
             } ]
         } ];

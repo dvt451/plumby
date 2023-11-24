@@ -292,6 +292,63 @@ h6 {
   padding: 0 0.9375rem;
 }
 
+.select {
+  position: relative;
+  color: #000;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+
+.select .option-list {
+  display: none;
+  position: relative;
+  z-index: 1;
+}
+
+.select .selections {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -5px;
+  left: 0;
+}
+
+.select .selected {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.select .selected-icon {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.select .selected-icon.active {
+  -webkit-transform: rotate(-180deg);
+      -ms-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+.select .option-open {
+  display: block;
+}
+
+.select .option {
+  background-color: #fff;
+  white-space: nowrap;
+  width: 100%;
+  cursor: pointer;
+}
+
 [class*=-ibg] {
   position: relative;
 }
@@ -644,7 +701,6 @@ h6 {
   overflow: hidden;
   padding-inline: 1.25rem;
   padding-block: 0.9375rem;
-  overflow-x: auto;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   margin-left: -1.25rem;
@@ -654,6 +710,19 @@ h6 {
 .burger-body__content {
   height: 100%;
   overflow-y: auto;
+  padding-right: 0.9375rem;
+}
+
+.burger-body__content::-webkit-scrollbar {
+  width: 0.3125rem;
+  background: var(--main-color-1);
+  border: 0.0625rem solid var(--main-color-2);
+  border-radius: 0.3125rem;
+}
+
+.burger-body__content::-webkit-scrollbar-thumb {
+  background-color: var(--main-color-2);
+  border-radius: 1.875rem;
 }
 
 ._active-burger {
@@ -666,6 +735,7 @@ h6 {
   padding-block: 5rem;
   background-color: var(--footer-background);
   color: var(--footer-color);
+  overflow: hidden;
 }
 
 .footer__head {
@@ -1089,16 +1159,6 @@ h6 {
 }
 
 .expert-member {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: var(--expert-background);
   padding-bottom: 1.875rem;
   min-width: 16.875rem;
@@ -1107,6 +1167,23 @@ h6 {
 .expert-member__picture {
   width: 100%;
   height: 19.375rem;
+}
+
+.expert-member__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.25rem;
 }
 
 .expert-member__name {
@@ -1608,10 +1685,32 @@ h6 {
   margin-top: 3.75rem;
 }
 
+.review-block__slide {
+  height: 100%;
+}
+
 .review-block__item {
   border: 0.0625rem solid var(--main-color-2);
-  padding: 2.5rem 1.875rem;
+  padding: 2.5rem 1.875rem 1.875rem 1.875rem;
   background-color: var(--client-item-background);
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.review-block__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .review-block__head {
@@ -1662,6 +1761,23 @@ h6 {
   font-size: var(--client-text-size);
   font-weight: var(--client-text-weight);
   line-height: 1.5em;
+  overflow-y: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  padding-right: 0.9375rem;
+}
+
+.review-block__text::-webkit-scrollbar {
+  width: 0.3125rem;
+  background: var(--main-color-1);
+  border: 0.0625rem solid var(--main-color-2);
+  border-radius: 0.3125rem;
+}
+
+.review-block__text::-webkit-scrollbar-thumb {
+  background-color: var(--main-color-2);
+  border-radius: 1.875rem;
 }
 
 .review-block__icon {
