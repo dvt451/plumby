@@ -494,15 +494,17 @@
                 }
             }
         }
-        const hero__picture = document.querySelector(".hero__picture");
-        const hero__context = document.querySelector(".hero__context");
-        dynamicAdaptive([ hero__picture ], hero__context, 767.98, 2);
-        const aboutPicture = document.querySelector(".about-picture");
-        const about__title = document.querySelector(".about .about-content");
-        dynamicAdaptive([ aboutPicture ], about__title, 991.98, 2);
-        const contactUsPicture = document.querySelector(".contact-us-picture");
-        const contactUs__context = document.querySelector(".contact-us__context");
-        dynamicAdaptive([ contactUsPicture ], contactUs__context);
+        if (document.querySelector(".main-page")) {
+            const hero__picture = document.querySelector(".hero__picture");
+            const hero__context = document.querySelector(".hero__context");
+            dynamicAdaptive([ hero__picture ], hero__context, 767.98, 2);
+            const aboutPicture = document.querySelector(".about-picture");
+            const about__title = document.querySelector(".about .about-content");
+            dynamicAdaptive([ aboutPicture ], about__title, 991.98, 2);
+            const contactUsPicture = document.querySelector(".contact-us-picture");
+            const contactUs__context = document.querySelector(".contact-us__context");
+            dynamicAdaptive([ contactUsPicture ], contactUs__context);
+        }
         function ssr_window_esm_isObject(obj) {
             return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
         }
@@ -3695,47 +3697,49 @@
             question: "How big is your marketing team?",
             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."
         } ];
-        for (let i = 0; i < faq.length; i++) {
-            const item = faq[i];
-            faq__accordion.innerHTML += `<div class="accordion__item"><div class="accordion__head"><div data-aos="zoom-in-up" class="accordion__title">${item.question}</div><div data-aos="zoom-in-up" class="accordion__icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none"><path d="M7.49932 10.8155C7.22726 11.0875 6.77274 11.0875 6.49998 10.8155L0.206656 4.53826C-0.0688853 4.26272 -0.0688853 3.81587 0.206656 3.54103C0.482197 3.26549 0.929748 3.26549 1.20529 3.54103L6.99997 9.3196L12.794 3.54033C13.0702 3.26479 13.517 3.26479 13.7933 3.54033C14.0688 3.81587 14.0688 4.26272 13.7933 4.53757L7.49932 10.8155Z" fill="#060606"/></svg></div></div><div class="accordion__content"><p data-aos="zoom-in-up" class="accordion__text">${item.text}</p></div></div>`;
-        }
-        let accordionActive = false;
-        const accordion__items = document.querySelectorAll(".accordion__item");
-        const accordion__content = document.querySelectorAll(".accordion__content");
-        const accordion__head = document.querySelectorAll(".accordion__head");
-        document.querySelectorAll(".accordion__title span");
-        const accordion__icon = document.querySelectorAll(".accordion__icon");
-        const accordion__text = document.querySelectorAll(".accordion__text");
-        for (let i = 0; i < accordion__items.length; i++) {
-            const item = accordion__items[i];
-            item.addEventListener("click", (function(e) {
-                if (!accordion__head[i].classList.contains("_active")) {
-                    accordionActive = true;
-                    accordion__head[i].classList.add("_active");
-                    accordion__content[i].classList.add("_active");
-                    accordion__icon[i].classList.add("_active");
-                    accordion__text[i].classList.add("_active");
-                } else {
-                    accordionActive = false;
-                    accordion__head[i].classList.remove("_active");
-                    accordion__content[i].classList.remove("_active");
-                    accordion__icon[i].classList.remove("_active");
-                    accordion__text[i].classList.remove("_active");
-                }
-            }));
-        }
-        const packageItems = document.querySelectorAll(".package-item");
-        for (let i = 0; i < packageItems.length; i++) {
-            const item = packageItems[i];
-            item.onmouseenter = () => {
-                item.style = "transition: all 0.3s;background-color: rgba(129, 129, 139, .15);";
-            };
-            item.onmouseleave = () => {
-                item.style = "transition: all 0.3s";
-                setTimeout((() => {
-                    item.style = "";
-                }), 300);
-            };
+        if (document.querySelector(".faq__accordion")) {
+            for (let i = 0; i < faq.length; i++) {
+                const item = faq[i];
+                faq__accordion.innerHTML += `<div data-aos="zoom-in-up" class="accordion__item"><div class="accordion__head"><div class="accordion__title">${item.question}</div><div class="accordion__icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none"><path d="M7.49932 10.8155C7.22726 11.0875 6.77274 11.0875 6.49998 10.8155L0.206656 4.53826C-0.0688853 4.26272 -0.0688853 3.81587 0.206656 3.54103C0.482197 3.26549 0.929748 3.26549 1.20529 3.54103L6.99997 9.3196L12.794 3.54033C13.0702 3.26479 13.517 3.26479 13.7933 3.54033C14.0688 3.81587 14.0688 4.26272 13.7933 4.53757L7.49932 10.8155Z" fill="#060606"/></svg></div></div><div class="accordion__content"><p class="accordion__text">${item.text}</p></div></div>`;
+            }
+            let accordionActive = false;
+            const accordion__items = document.querySelectorAll(".accordion__item");
+            const accordion__content = document.querySelectorAll(".accordion__content");
+            const accordion__head = document.querySelectorAll(".accordion__head");
+            document.querySelectorAll(".accordion__title span");
+            const accordion__icon = document.querySelectorAll(".accordion__icon");
+            const accordion__text = document.querySelectorAll(".accordion__text");
+            for (let i = 0; i < accordion__items.length; i++) {
+                const item = accordion__items[i];
+                item.addEventListener("click", (function(e) {
+                    if (!accordion__head[i].classList.contains("_active")) {
+                        accordionActive = true;
+                        accordion__head[i].classList.add("_active");
+                        accordion__content[i].classList.add("_active");
+                        accordion__icon[i].classList.add("_active");
+                        accordion__text[i].classList.add("_active");
+                    } else {
+                        accordionActive = false;
+                        accordion__head[i].classList.remove("_active");
+                        accordion__content[i].classList.remove("_active");
+                        accordion__icon[i].classList.remove("_active");
+                        accordion__text[i].classList.remove("_active");
+                    }
+                }));
+            }
+            const packageItems = document.querySelectorAll(".package-item");
+            for (let i = 0; i < packageItems.length; i++) {
+                const item = packageItems[i];
+                item.onmouseenter = () => {
+                    item.style = "transition: all 0.3s;background-color: rgba(129, 129, 139, .15);";
+                };
+                item.onmouseleave = () => {
+                    item.style = "transition: all 0.3s";
+                    setTimeout((() => {
+                        item.style = "";
+                    }), 300);
+                };
+            }
         }
         var aos = __webpack_require__(711);
         let _slideUp = (target, duration = 500) => {
@@ -3934,6 +3938,13 @@
             easing: "ease-out",
             delay: 0
         });
+        if (document.querySelector(".article-page")) {
+            const header = document.querySelector(".header");
+            header.classList.add("header-article");
+            const articleLogo = document.querySelector(".logo");
+            articleLogo.classList.add("logo");
+            articleLogo.classList.add("logo-white");
+        }
         isWebp();
     })();
 })();
